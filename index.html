@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <script defer src="./index.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="text-center">Pokemón</h1>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <h2 class="text-center">CRUD</h2>
+      <div class="row">
+        <div class="col-md-8 table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Generación</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="pokemonTBody">
+            </tbody>
+          </table>
+        </div>
+        <form name="pokemonForm" class="col-md-4">
+          <div class="form-floating mb-3">
+            <input type="text" name="name" class="form-control" id="pokemonName" placeholder="Nombre" required>
+            <label for="pokemonName">Nombre</label>
+          </div>
+          <div>
+            <select class="form-select mb-3" aria-label=".form-select-lg example" name="generation" required>
+              <option selected value="">Generación</option>
+              <option value="Primera">Primera</option>
+              <option value="Segunda">Segunda</option>
+              <option value="Tercera">Tercera</option>
+              <option value="Cuarta">Cuarta</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="category" class="form-control" id="pokemonCategry" placeholder="Categoría"
+              required>
+            <label for="pokemonCatg">Categoría</label>
+          </div>
+          <div>
+            <select class="form-select mb-3" aria-label=".form-select-lg example" name="type" required>
+              <option selected value="">Tipo</option>
+              <option value="Fuego">Fuego</option>
+              <option value="Agua">Agua</option>
+              <option value="Planta">Planta</option>
+              <option value="Veneno">Veneno</option>
+              <option value="Bicho">Bicho</option>
+              <option value="Eléctrico">Eléctrico</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="url" name="image" class="form-control" id="pokemonImage" placeholder="Imagen" requerid />
+            <label for="pokemonImage">Imagen</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Crear</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="div1">
+      <style>
+        .div1 {
+          height: 60px;
+        }
+      </style>
+
+    </div>
+  </footer>
+</body>
+
+</html>
