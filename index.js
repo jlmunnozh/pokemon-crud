@@ -93,10 +93,47 @@ const readPokemons = () => {
     });
 };
 
+// const deletePokemon = (id) => {
+//     pokemons = pokemons.filter((_, index) => index != id);
+//     localStorage.setItem('pokemonsCrud', JSON.stringify(pokemons));
+//     readPokemons();
+// };
+
 const deletePokemon = (id) => {
-    pokemons = pokemons.filter((_, index) => index != id);
-    localStorage.setItem('pokemonsCrud', JSON.stringify(pokemons));
-    readPokemons();
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success mx-1',
+            cancelButton: 'btn btn-danger mx-1'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: '¿Estás seguro?',
+        text: "No podrás recuperarlo",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '¡Sí, elimínalo!',
+        cancelButtonText: 'No, cancélalo!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            pokemons = pokemons.filter((_, index) => index !== id);
+            localStorage.setItem('pokemonsCrud', JSON.stringify(pokemons));
+            readPokemons();
+            swalWithBootstrapButtons.fire(
+                '¡Eliminado!',
+                'Tu Pokémon ha sido eliminado',
+                'success'
+            )
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+                'Cancelado',
+                'Tu Pokémon está seguro',
+                'error'
+            )
+        }
+    })
 };
 
 if (localStorage.getItem('pokemonsCrud')) {
